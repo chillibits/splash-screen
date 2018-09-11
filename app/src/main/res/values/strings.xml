@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SplashScreenExample</string>
+    <string name="restart_app">Restart app</string>
+</resources>
