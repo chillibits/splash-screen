@@ -2,6 +2,7 @@
 [![](https://jitpack.io/v/mrgames13/SplashScreen.svg)](https://jitpack.io/#mrgames13/SplashScreen)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SplashScreen-blue.svg?style=flat)](https://android-arsenal.com/details/1/7112)
 [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)
+
 Android library for getting a nice and simple SlashScreen into your Android app.
 
 ![Animated demo](https://mrgames-server.de/files/github/SplashScreen/animated_demo.gif)
