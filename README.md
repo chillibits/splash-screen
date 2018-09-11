@@ -28,7 +28,7 @@ SplashScreenBuilder.getInstance(this)
                 .show();
 ```
 
-You can customize the appearance of the SplashScreen using following arguments when building the Activity with `DrawingActivityBuilder`:
+You can customize the appearance of the SplashScreen using following arguments when building the Activity with `SplashScreenBuilder`:
 
 Method | Description
 -------|------------
@@ -37,6 +37,7 @@ setImage(int res_id) | Sets the image of the SplashScreen, which is displayed wh
 setTextFadeInDuration(int millis) | You can call this method to set the duration of the fade in animation of the title and the subtitle.
 setTitle(String title) | This method replaces the name of your app, which is the default title of the SplashScreen, with a custom string.
 setSubtitle(String title) | This method replaces the default subtitle, with a custom string.
+
 
 Thank you for using the SplashScreen!
 
