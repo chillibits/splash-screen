@@ -31,6 +31,19 @@ SplashScreenBuilder.getInstance(this)
                 .setImage(R.drawable.app_icon)
                 .show();
 ```
+If you want to receive a result from the SplashScreen, you can override onActivtyResult as following:
+```
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if(requestCode == SplashScreenBuilder.SPLASH_SCREEN_FINISHED) {
+        if(resultCode == RESULT_OK) {
+            //SplashScreen finished without manual canceling
+        } else if(resultCode == RESULT_CANCELED) {
+            //SplashScreen finished through manual canceling
+        }
+    }
+}
+```
 
 You can customize the appearance of the SplashScreen using following arguments when building the Activity with `SplashScreenBuilder`:
 
