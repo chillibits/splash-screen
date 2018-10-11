@@ -1,12 +1,13 @@
 package com.mrgames13.jimdo.splashscreen.App;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
 public class SplashScreenBuilder {
 
     //Constants
+    public static final int SPLASH_SCREEN_FINISHED = 10001;
     protected static final String VIDEO_ID = "VideoID";
     protected static final String IMAGE_ID = "ImageID";
     protected static final String TEXT_FADE_IN_DURATION = "TextFadeInDuration";
@@ -15,20 +16,20 @@ public class SplashScreenBuilder {
     protected static final String SKIP_ON_TAP = "SkipOnTap";
 
     //Variables as objects
-    private Context context;
+    private Activity activity;
     private Intent i;
 
     //Variables
 
-    private SplashScreenBuilder(Context context) {
-        this.context = context;
-        this.i = new Intent(context, SplashActivity.class);
+    private SplashScreenBuilder(Activity activity) {
+        this.activity = activity;
+        this.i = new Intent(activity, SplashActivity.class);
         // Set default values
         this.i.putExtra(SKIP_ON_TAP, true);
     }
 
-    public static SplashScreenBuilder getInstance(Context context) {
-        return new SplashScreenBuilder(context);
+    public static SplashScreenBuilder getInstance(Activity activity) {
+        return new SplashScreenBuilder(activity);
     }
 
     public SplashScreenBuilder setVideo(@NonNull int res_id) {
@@ -52,7 +53,7 @@ public class SplashScreenBuilder {
     }
 
     public SplashScreenBuilder setTitle(@NonNull int res_id) {
-        i.putExtra(TITLE, context.getString(res_id));
+        i.putExtra(TITLE, activity.getString(res_id));
         return this;
     }
 
@@ -62,7 +63,7 @@ public class SplashScreenBuilder {
     }
 
     public SplashScreenBuilder setSubtitle(@NonNull int res_id) {
-        i.putExtra(SUBTITILE, context.getString(res_id));
+        i.putExtra(SUBTITILE, activity.getString(res_id));
         return this;
     }
 
@@ -73,6 +74,6 @@ public class SplashScreenBuilder {
 
     public void show() {
         if(!i.hasExtra(SplashScreenBuilder.VIDEO_ID) || !i.hasExtra(SplashScreenBuilder.IMAGE_ID)) throw new RuntimeException("You have to pass the video-id AND the image-id to open up the spash screen. Plase use the methods setVideo() and setImage().");
-        context.startActivity(i);
+        activity.startActivityForResult(i, SPLASH_SCREEN_FINISHED);
     }
 }

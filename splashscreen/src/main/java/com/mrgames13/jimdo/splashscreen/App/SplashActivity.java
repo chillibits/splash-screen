@@ -51,6 +51,7 @@ public class SplashActivity extends AppCompatActivity {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     animation.stopPlayback();
+                    setResult(RESULT_CANCELED);
                     finish();
                     return true;
                 }
@@ -98,6 +99,7 @@ public class SplashActivity extends AppCompatActivity {
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
+                                setResult(RESULT_OK);
                                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                                 finish();
                             }

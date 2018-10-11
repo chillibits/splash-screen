@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.mrgames13.jimdo.splashscreen.App.SplashScreenBuilder;
 
@@ -24,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         SplashScreenBuilder.getInstance(this)
                 .setVideo(R.raw.splash_animation)
                 .setImage(R.drawable.app_icon)
-                .enableSkipOnTap(false)
                 .show();
 
         Button restart_app = findViewById(R.id.restart_app);
@@ -40,5 +40,16 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == SplashScreenBuilder.SPLASH_SCREEN_FINISHED) {
+            if(resultCode == RESULT_OK) {
+                Toast.makeText(this, "SplashScreen finished", Toast.LENGTH_SHORT).show();
+            } else if(resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "SplashScreen finished, but canceled", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
