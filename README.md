@@ -58,4 +58,4 @@ setSubtitle(String title) | This method replaces the default subtitle, with a cu
 
 Thank you for using the SplashScreen!
 
-© M&R Games 2018 (Designed and developed by Marc Auberer in 2018)
+© M&R Games 2018-2019 (Designed and developed by Marc Auberer in 2018)
