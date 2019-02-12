@@ -92,25 +92,31 @@ public class SplashActivity extends AppCompatActivity {
             public void onCompletion(MediaPlayer mediaPlayer) {
                 animation.setVisibility(View.GONE);
                 animation.stopPlayback();
-                // Fade in the text slowly
-                fade_in.setAnimationListener(new SimpleAnimationListener() {
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                setResult(RESULT_OK);
-                                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                                finish();
-                            }
-                        }, i.hasExtra(SplashScreenBuilder.TEXT_FADE_IN_DURATION) ? i.getIntExtra(SplashScreenBuilder.TEXT_FADE_IN_DURATION, 1000) : 1000);
-                    }
-                });
-                app_name.startAnimation(fade_in);
-                powered_by.startAnimation(fade_in);
-                app_name.setVisibility(View.VISIBLE);
-                powered_by.setVisibility(View.VISIBLE);
-
+                if(i.hasExtra(SplashScreenBuilder.SKIP_IMAGE) && i.getBooleanExtra(SplashScreenBuilder.SKIP_IMAGE, false)) {
+                    // If image skipping was set, finish the activity
+                    setResult(RESULT_OK);
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    finish();
+                } else {
+                    // Fade in the text slowly
+                    fade_in.setAnimationListener(new SimpleAnimationListener() {
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    setResult(RESULT_OK);
+                                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                                    finish();
+                                }
+                            }, i.hasExtra(SplashScreenBuilder.TEXT_FADE_IN_DURATION) ? i.getIntExtra(SplashScreenBuilder.TEXT_FADE_IN_DURATION, 1000) : 1000);
+                        }
+                    });
+                    app_name.startAnimation(fade_in);
+                    powered_by.startAnimation(fade_in);
+                    app_name.setVisibility(View.VISIBLE);
+                    powered_by.setVisibility(View.VISIBLE);
+                }
             }
         });
         animation.requestFocus();

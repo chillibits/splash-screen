@@ -14,6 +14,7 @@ public class SplashScreenBuilder {
     protected static final String TITLE = "Title";
     protected static final String SUBTITILE = "Subtitle";
     protected static final String SKIP_ON_TAP = "SkipOnTap";
+    protected static final String SKIP_IMAGE = "SkipImage";
 
     //Variables as objects
     private Activity activity;
@@ -69,6 +70,11 @@ public class SplashScreenBuilder {
 
     public SplashScreenBuilder enableSkipOnTap(boolean skipOnTap) {
         i.putExtra(SKIP_ON_TAP, skipOnTap);
+        return this;
+    }
+
+    public SplashScreenBuilder skipImage(boolean skipImage) {
+        i.putExtra(SKIP_IMAGE, skipImage);
         return this;
     }
 

@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         SplashScreenBuilder.getInstance(this)
                 .setVideo(R.raw.splash_animation)
                 .setImage(R.drawable.app_icon)
+                .skipImage(true)
                 .show();
 
         Button restart_app = findViewById(R.id.restart_app);
