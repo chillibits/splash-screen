@@ -20,7 +20,7 @@ allprojects {
 ```
 To load the library into your project use this code in the build.gradle file within the app module:
 ```gradle
-  implementation 'com.github.mrgames13:SplashScreen:1.0.1'
+  implementation 'com.github.mrgames13:SplashScreen:1.0.2'
 ```
 
 # Usage
@@ -54,8 +54,9 @@ setImage(int res_id) | Sets the image of the SplashScreen, which is displayed wh
 setTextFadeInDuration(int millis) | You can call this method to set the duration of the fade in animation of the title and the subtitle.
 setTitle(String title) | This method replaces the name of your app, which is the default title of the SplashScreen, with a custom string.
 setSubtitle(String title) | This method replaces the default subtitle, with a custom string.
+skipImage(boolean skip) | This opens the ability to skip the image after the video.
 
 
 Thank you for using the SplashScreen!
 
-© M&R Games 2018-2019 (Designed and developed by Marc Auberer in 2018)
+© M&R Games 2018-2019 (Designed and developed by Marc Auberer in 2018 and 2019)
