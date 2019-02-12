@@ -20,16 +20,29 @@ allprojects {
 ```
 To load the library into your project use this code in the build.gradle file within the app module:
 ```gradle
-  implementation 'com.github.mrgames13:SplashScreen:1.0.0'
+  implementation 'com.github.mrgames13:SplashScreen:1.0.1'
 ```
 
 # Usage
 To use the SplashScreen, paste this code to the beginning of the `onCreate` method of the launcher activity of your app. For better performance, we recommend to do this before `setContentView()`.
-```
+```android
 SplashScreenBuilder.getInstance(this)
                 .setVideo(R.raw.splash_animation)
                 .setImage(R.drawable.app_icon)
                 .show();
+```
+If you want to receive a result from the SplashScreen, you can override onActivtyResult as following:
+```android
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if(requestCode == SplashScreenBuilder.SPLASH_SCREEN_FINISHED) {
+        if(resultCode == RESULT_OK) {
+            //SplashScreen finished without manual canceling
+        } else if(resultCode == RESULT_CANCELED) {
+            //SplashScreen finished through manual canceling
+        }
+    }
+}
 ```
 
 You can customize the appearance of the SplashScreen using following arguments when building the Activity with `SplashScreenBuilder`:
@@ -45,4 +58,4 @@ setSubtitle(String title) | This method replaces the default subtitle, with a cu
 
 Thank you for using the SplashScreen!
 
-© M&R Games 2018 (Designed and developed by Marc Auberer in 2018)
+© M&R Games 2018-2019 (Designed and developed by Marc Auberer in 2018)
