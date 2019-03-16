@@ -8,13 +8,13 @@ public class SplashScreenBuilder {
 
     //Constants
     public static final int SPLASH_SCREEN_FINISHED = 10001;
-    protected static final String VIDEO_ID = "VideoID";
-    protected static final String IMAGE_ID = "ImageID";
-    protected static final String TEXT_FADE_IN_DURATION = "TextFadeInDuration";
-    protected static final String TITLE = "Title";
-    protected static final String SUBTITILE = "Subtitle";
-    protected static final String SKIP_ON_TAP = "SkipOnTap";
-    protected static final String SKIP_IMAGE = "SkipImage";
+    static final String VIDEO_ID = "VideoID";
+    static final String IMAGE_ID = "ImageID";
+    static final String TEXT_FADE_IN_DURATION = "TextFadeInDuration";
+    static final String TITLE = "Title";
+    static final String SUBTITILE = "Subtitle";
+    static final String SKIP_ON_TAP = "SkipOnTap";
+    static final String SKIP_IMAGE = "SkipImage";
 
     //Variables as objects
     private Activity activity;
