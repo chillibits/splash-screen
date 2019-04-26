@@ -1,8 +1,10 @@
 package com.mrgames13.jimdo.splashscreen.App;
 
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -13,8 +15,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.VideoView;
 
-import com.mrgames13.jimdo.splashscreen.HelpClasses.MutedVideoView;
 import com.mrgames13.jimdo.splashscreen.HelpClasses.SimpleAnimationListener;
 import com.mrgames13.jimdo.splashscreen.R;
 
@@ -24,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
 
     // Variables as objects
     private RelativeLayout container;
-    private MutedVideoView animation;
+    private VideoView animation;
     private ImageView app_icon;
     private TextView app_name;
     private TextView powered_by;
@@ -58,6 +60,7 @@ public class SplashActivity extends AppCompatActivity {
             });
         }
         animation = findViewById(R.id.app_icon_animation);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) animation.setAudioFocusRequest(AudioManager.AUDIOFOCUS_NONE);
         app_icon = findViewById(R.id.app_icon);
         app_icon.setImageResource(i.getIntExtra(SplashScreenBuilder.IMAGE_ID, 0));
         app_name = findViewById(R.id.app_title);
