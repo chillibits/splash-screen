@@ -20,7 +20,7 @@ allprojects {
 ```
 To load the library into your project, use this code in the build.gradle file within the app module:
 ```gradle
-  implementation 'com.github.mrgames13:SplashScreen:1.0.3'
+  implementation 'com.github.mrgames13:SplashScreen:1.0.5'
 ```
 
 # Usage
