@@ -9,7 +9,7 @@ Android library for getting a nice and simple SlashScreen into your Android app.
 
 # Installation
 
-Up to now, the library is only available in JitPack. Please add this code to your build.gradle file on project level:
+Up to now, the library is only available on JitPack. Please add this code to your build.gradle file on project level:
 ```gradle
 allprojects {
   repositories {
@@ -18,9 +18,9 @@ allprojects {
   }
 }
 ```
-To load the library into your project use this code in the build.gradle file within the app module:
+To load the library into your project, use this code in the build.gradle file within the app module:
 ```gradle
-  implementation 'com.github.mrgames13:SplashScreen:1.0.2'
+  implementation 'com.github.mrgames13:SplashScreen:1.0.3'
 ```
 
 # Usage
