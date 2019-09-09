@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
                 .setVideo(R.raw.splash_animation)
                 .setVideoDark(R.raw.splash_animation_dark)
                 .setImage(R.drawable.app_icon)
-                .skipImage(true)
+                .setTitle(R.string.app_name)
+                .setSubtitle(R.string.powered_by)
                 .show();
 
         Button restart_app = findViewById(R.id.restart_app);
