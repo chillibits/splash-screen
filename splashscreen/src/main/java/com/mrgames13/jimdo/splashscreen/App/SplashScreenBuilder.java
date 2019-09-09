@@ -2,13 +2,15 @@ package com.mrgames13.jimdo.splashscreen.App;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 public class SplashScreenBuilder {
 
     //Constants
     public static final int SPLASH_SCREEN_FINISHED = 10001;
     static final String VIDEO_ID = "VideoID";
+    static final String VIDEO_ID_DARK = "VideoIDDark";
     static final String IMAGE_ID = "ImageID";
     static final String TEXT_FADE_IN_DURATION = "TextFadeInDuration";
     static final String TITLE = "Title";
@@ -35,6 +37,11 @@ public class SplashScreenBuilder {
 
     public SplashScreenBuilder setVideo(@NonNull int res_id) {
         i.putExtra(VIDEO_ID, res_id);
+        return this;
+    }
+
+    public SplashScreenBuilder setVideoDark(@NonNull int res_id) {
+        i.putExtra(VIDEO_ID_DARK, res_id);
         return this;
     }
 
@@ -80,6 +87,7 @@ public class SplashScreenBuilder {
 
     public void show() {
         if(!i.hasExtra(SplashScreenBuilder.VIDEO_ID) || !i.hasExtra(SplashScreenBuilder.IMAGE_ID)) throw new RuntimeException("You have to pass the video-id AND the image-id to open up the spash screen. Plase use the methods setVideo() and setImage().");
+        if(!i.hasExtra(SplashScreenBuilder.VIDEO_ID_DARK)) i.putExtra(VIDEO_ID_DARK, i.getIntExtra(VIDEO_ID, 0));
         activity.startActivityForResult(i, SPLASH_SCREEN_FINISHED);
     }
 }

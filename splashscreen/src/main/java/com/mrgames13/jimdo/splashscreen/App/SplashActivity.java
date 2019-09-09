@@ -1,13 +1,13 @@
 package com.mrgames13.jimdo.splashscreen.App;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.mrgames13.jimdo.splashscreen.HelpClasses.SimpleAnimationListener;
 import com.mrgames13.jimdo.splashscreen.R;
@@ -72,7 +74,8 @@ public class SplashActivity extends AppCompatActivity {
         fade_in = AnimationUtils.loadAnimation(SplashActivity.this, android.R.anim.fade_in);
 
         // Initialize VideoView
-        final Uri video_uri = Uri.parse("android.resource://" + getPackageName() + "/" + i.getIntExtra(SplashScreenBuilder.VIDEO_ID, 0));
+        int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        final Uri video_uri = Uri.parse("android.resource://" + getPackageName() + "/" + (nightModeFlags == Configuration.UI_MODE_NIGHT_NO ? i.getIntExtra(SplashScreenBuilder.VIDEO_ID, 0) : i.getIntExtra(SplashScreenBuilder.VIDEO_ID_DARK, 0)));
         animation.setVideoURI(video_uri);
         animation.setDrawingCacheEnabled(true);
         animation.setZOrderOnTop(true);

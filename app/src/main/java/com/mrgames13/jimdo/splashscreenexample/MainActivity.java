@@ -2,10 +2,11 @@ package com.mrgames13.jimdo.splashscreenexample;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.mrgames13.jimdo.splashscreen.App.SplashScreenBuilder;
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         SplashScreenBuilder.getInstance(this)
                 .setVideo(R.raw.splash_animation)
+                .setVideoDark(R.raw.splash_animation_dark)
                 .setImage(R.drawable.app_icon)
                 .skipImage(true)
                 .show();
@@ -45,10 +47,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == SplashScreenBuilder.SPLASH_SCREEN_FINISHED) {
-            if(resultCode == RESULT_OK) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == SplashScreenBuilder.SPLASH_SCREEN_FINISHED) {
+            if (resultCode == RESULT_OK) {
                 Toast.makeText(this, "SplashScreen finished", Toast.LENGTH_SHORT).show();
-            } else if(resultCode == RESULT_CANCELED) {
+            } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "SplashScreen finished, but canceled", Toast.LENGTH_SHORT).show();
             }
         }
