@@ -20,7 +20,7 @@ allprojects {
 ```
 To load the library into your project, use this code in the build.gradle file within the app module:
 ```gradle
-  implementation 'com.github.mrgames13:SplashScreen:1.0.3'
+  implementation 'com.github.mrgames13:SplashScreen:1.0.5'
 ```
 
 # Usage
@@ -28,6 +28,7 @@ To use the SplashScreen, paste this code to the beginning of the `onCreate` meth
 ```android
 SplashScreenBuilder.getInstance(this)
                 .setVideo(R.raw.splash_animation)
+                .setVideoDark(R.raw.splash_animation_dark)
                 .setImage(R.drawable.app_icon)
                 .show();
 ```
@@ -50,6 +51,7 @@ You can customize the appearance of the SplashScreen using following arguments w
 Method | Description
 -------|------------
 setVideo(int res_id) | Sets the animation video of the SplashScreen. You have to pass this argument, otherwise the app will get an error.
+setVideoDark(int res_id) | Set the animation video of the Splash Screen for the dark theme.
 setImage(int res_id) | Sets the image of the SplashScreen, which is displayed when the animation has ended. You have to pass this argument, otherwise the app will get an error.
 setTextFadeInDuration(int millis) | You can call this method to set the duration of the fade in animation of the title and the subtitle.
 setTitle(String title) | This method replaces the name of your app, which is the default title of the SplashScreen, with a custom string.
