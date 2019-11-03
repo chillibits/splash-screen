@@ -25,8 +25,17 @@ To load the library into your project, use this code in the build.gradle file wi
 
 # Usage
 To use the SplashScreen, paste this code to the beginning of the `onCreate` method of the launcher activity of your app. For better performance, we recommend to do this before `setContentView()`.
+### Kotlin
 ```android
 SplashScreenBuilder.getInstance(this)
+                .setVideo(R.raw.splash_animation)
+                .setVideoDark(R.raw.splash_animation_dark)
+                .setImage(R.drawable.app_icon)
+                .show();
+```
+### Java
+```android
+SplashScreenBuilder.Companion.getInstance(this)
                 .setVideo(R.raw.splash_animation)
                 .setVideoDark(R.raw.splash_animation_dark)
                 .setImage(R.drawable.app_icon)
@@ -50,7 +59,7 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
 ```android
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    if(requestCode == SplashScreenBuilder.SPLASH_SCREEN_FINISHED) {
+    if(requestCode == SplashScreenBuilder.Companion.getSPLASH_SCREEN_FINISHED()) {
         if(resultCode == RESULT_OK) {
             //SplashScreen finished without manual canceling
         } else if(resultCode == RESULT_CANCELED) {
