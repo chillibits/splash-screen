@@ -20,7 +20,7 @@ allprojects {
 ```
 To load the library into your project, use this code in the build.gradle file within the app module:
 ```gradle
-  implementation 'com.github.mrgames13:SplashScreen:1.0.5'
+  implementation 'com.github.mrgames13:SplashScreen:1.1.0'
 ```
 
 # Usage
@@ -33,6 +33,20 @@ SplashScreenBuilder.getInstance(this)
                 .show();
 ```
 If you want to receive a result from the SplashScreen, you can override onActivtyResult as following:
+### Kotlin
+```android
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    if (requestCode == SplashScreenBuilder.SPLASH_SCREEN_FINISHED) {
+        if (resultCode == Activity.RESULT_OK) {
+            //SplashScreen finished without manual canceling
+        } else if (resultCode == Activity.RESULT_CANCELED) {
+            //SplashScreen finished through manual canceling
+        }
+    }
+}
+```
+### Java
 ```android
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
