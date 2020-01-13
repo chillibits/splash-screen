@@ -1,11 +1,11 @@
 # Android SplashScreen
-[![](https://jitpack.io/v/mrgames13/SplashScreen.svg)](https://jitpack.io/#mrgames13/SplashScreen)
+[![](https://jitpack.io/v/ChilliBits/splash-screen.svg)](https://jitpack.io/#ChilliBits/splash-screen)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SplashScreen-blue.svg?style=flat)](https://android-arsenal.com/details/1/7112)
 [![API](https://img.shields.io/badge/API-14%2B-red.svg?style=flat)](https://android-arsenal.com/api?level=14)
 
 Android library for getting a nice and simple SlashScreen into your Android app.
 
-![Animated demo](https://mrgames-server.de/files/github/SplashScreen/animated_demo.gif)
+![Animated demo](https://chillibits.com/github-media/SplashScreen/animated_demo.gif)
 
 # Installation
 
@@ -20,7 +20,7 @@ allprojects {
 ```
 To load the library into your project, use this code in the build.gradle file within the app module:
 ```gradle
-  implementation 'com.github.mrgames13:SplashScreen:1.1.0'
+  implementation 'com.github.ChilliBits:splash-screen:1.1.0'
 ```
 
 # Usage
@@ -84,4 +84,4 @@ skipImage(boolean skip) | This opens the ability to skip the image after the vid
 
 Thank you for using the SplashScreen!
 
-© M&R Games 2018-2019 (Designed and developed by Marc Auberer in 2018 and 2019)
+© M&R Games 2018-2020 (Designed and developed by Marc Auberer in 2018 and 2019)
