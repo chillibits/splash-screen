@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mrgames13.jimdo.splashscreen" >
+    package="com.chillibits.splashscreen" >
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".App.SplashActivity"
+            android:name="com.chillibits.splashscreen.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar"
             android:windowSoftInputMode="adjustPan" />

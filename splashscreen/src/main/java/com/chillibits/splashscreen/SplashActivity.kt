@@ -1,4 +1,4 @@
-package com.mrgames13.jimdo.splashscreen.App
+package com.chillibits.splashscreen
 
 import android.app.Activity
 import android.content.res.Configuration
@@ -16,18 +16,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.mrgames13.jimdo.splashscreen.R
 
 class SplashActivity : AppCompatActivity() {
 
     // Variables as objects
     private lateinit var textureView: TextureView
     private lateinit var player: MediaPlayer
-    private lateinit var app_icon: ImageView
-    private lateinit var app_name: TextView
-    private lateinit var powered_by: TextView
+    private lateinit var appIcon: ImageView
+    private lateinit var appName: TextView
+    private lateinit var poweredBy: TextView
     private lateinit var handler: Handler
-    private lateinit var fade_in: Animation
+    private lateinit var fadeIn: Animation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +40,8 @@ class SplashActivity : AppCompatActivity() {
 
         // Initialize MediaPlayer
         val nightModeFlags = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-        val video_uri = Uri.parse("android.resource://" + packageName + "/" + if (nightModeFlags == Configuration.UI_MODE_NIGHT_NO) i.getIntExtra(SplashScreenBuilder.VIDEO_ID, 0) else i.getIntExtra(SplashScreenBuilder.VIDEO_ID_DARK, 0))
-        player = MediaPlayer.create(this, video_uri)
+        val videoUri = Uri.parse("android.resource://$packageName/" + if (nightModeFlags == Configuration.UI_MODE_NIGHT_NO) i.getIntExtra(SplashScreenBuilder.VIDEO_ID, 0) else i.getIntExtra(SplashScreenBuilder.VIDEO_ID_DARK, 0))
+        player = MediaPlayer.create(this, videoUri)
 
         // Initialize components
         val container = findViewById<ConstraintLayout>(R.id.container)
@@ -69,22 +68,22 @@ class SplashActivity : AppCompatActivity() {
 
             override fun onSurfaceTextureUpdated(surface: SurfaceTexture) {}
         }
-        app_icon = findViewById(R.id.app_icon)
-        app_icon.setImageResource(i.getIntExtra(SplashScreenBuilder.IMAGE_ID, 0))
-        app_name = findViewById(R.id.app_title)
-        if (i.hasExtra(SplashScreenBuilder.TITLE) && !i.getStringExtra(SplashScreenBuilder.TITLE)!!.isEmpty()) app_name.text = i.getStringExtra(SplashScreenBuilder.TITLE)
-        powered_by = findViewById(R.id.app_powered)
-        if (i.hasExtra(SplashScreenBuilder.SUBTITILE) && !i.getStringExtra(SplashScreenBuilder.SUBTITILE)!!.isEmpty()) powered_by.text = i.getStringExtra(SplashScreenBuilder.SUBTITILE)
+        appIcon = findViewById(R.id.app_icon)
+        appIcon.setImageResource(i.getIntExtra(SplashScreenBuilder.IMAGE_ID, 0))
+        appName = findViewById(R.id.app_title)
+        if (i.hasExtra(SplashScreenBuilder.TITLE) && !i.getStringExtra(SplashScreenBuilder.TITLE)!!.isEmpty()) appName.text = i.getStringExtra(SplashScreenBuilder.TITLE)
+        poweredBy = findViewById(R.id.app_powered)
+        if (i.hasExtra(SplashScreenBuilder.SUBTITLE) && !i.getStringExtra(SplashScreenBuilder.SUBTITLE)!!.isEmpty()) poweredBy.text = i.getStringExtra(SplashScreenBuilder.SUBTITLE)
 
         // Initialize fade-in textureView
-        fade_in = AnimationUtils.loadAnimation(this@SplashActivity, android.R.anim.fade_in)
+        fadeIn = AnimationUtils.loadAnimation(this@SplashActivity, android.R.anim.fade_in)
 
         textureView.bringToFront()
         player.setOnPreparedListener { mediaPlayer ->
             player.seekTo(0)
             player.start()
             mediaPlayer.setOnInfoListener { _, what, extra ->
-                if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) app_icon.visibility = View.VISIBLE
+                if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) appIcon.visibility = View.VISIBLE
                 false
             }
         }
@@ -98,7 +97,7 @@ class SplashActivity : AppCompatActivity() {
                 finish()
             } else {
                 // Fade in the text slowly
-                fade_in.setAnimationListener(object : Animation.AnimationListener {
+                fadeIn.setAnimationListener(object : Animation.AnimationListener {
                     override fun onAnimationStart(animation: Animation) {}
 
                     override fun onAnimationEnd(animation: Animation) {
@@ -111,10 +110,10 @@ class SplashActivity : AppCompatActivity() {
 
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
-                app_name.startAnimation(fade_in)
-                powered_by.startAnimation(fade_in)
-                app_name.visibility = View.VISIBLE
-                powered_by.visibility = View.VISIBLE
+                appName.startAnimation(fadeIn)
+                poweredBy.startAnimation(fadeIn)
+                appName.visibility = View.VISIBLE
+                poweredBy.visibility = View.VISIBLE
             }
         }
         textureView.requestFocus()

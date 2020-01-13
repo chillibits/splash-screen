@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.mrgames13.jimdo.splashscreenexample"
+        applicationId "com.chillibits.splashscreenexample"
         minSdkVersion 14
         targetSdkVersion 29
         versionCode 1

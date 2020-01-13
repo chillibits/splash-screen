@@ -1,4 +1,4 @@
-package com.mrgames13.jimdo.splashscreen.App
+package com.chillibits.splashscreen
 
 import android.app.Activity
 import android.content.Intent
@@ -6,10 +6,9 @@ import android.content.Intent
 class SplashScreenBuilder private constructor(
     // Variables as objects
     private val activity: Activity) {
-    private val i: Intent
+    private val i: Intent = Intent(activity, SplashActivity::class.java)
 
     init {
-        this.i = Intent(activity, SplashActivity::class.java)
         // Set default values
         this.i.putExtra(SKIP_ON_TAP, true)
     }
@@ -45,12 +44,12 @@ class SplashScreenBuilder private constructor(
     }
 
     fun setSubtitle(subtitle: String): SplashScreenBuilder {
-        i.putExtra(SUBTITILE, subtitle)
+        i.putExtra(SUBTITLE, subtitle)
         return this
     }
 
     fun setSubtitle(res_id: Int): SplashScreenBuilder {
-        i.putExtra(SUBTITILE, activity.getString(res_id))
+        i.putExtra(SUBTITLE, activity.getString(res_id))
         return this
     }
 
@@ -73,14 +72,14 @@ class SplashScreenBuilder private constructor(
     companion object {
         // Constants
         val SPLASH_SCREEN_FINISHED = 10001
-        internal val VIDEO_ID = "VideoID"
-        internal val VIDEO_ID_DARK = "VideoIDDark"
-        internal val IMAGE_ID = "ImageID"
-        internal val TEXT_FADE_IN_DURATION = "TextFadeInDuration"
-        internal val TITLE = "Title"
-        internal val SUBTITILE = "Subtitle"
-        internal val SKIP_ON_TAP = "SkipOnTap"
-        internal val SKIP_IMAGE = "SkipImage"
+        internal const val VIDEO_ID = "VideoID"
+        internal const val VIDEO_ID_DARK = "VideoIDDark"
+        internal const val IMAGE_ID = "ImageID"
+        internal const val TEXT_FADE_IN_DURATION = "TextFadeInDuration"
+        internal const val TITLE = "Title"
+        internal const val SUBTITLE = "Subtitle"
+        internal const val SKIP_ON_TAP = "SkipOnTap"
+        internal const val SKIP_IMAGE = "SkipImage"
 
         fun getInstance(activity: Activity): SplashScreenBuilder {
             return SplashScreenBuilder(activity)

@@ -20,7 +20,7 @@ allprojects {
 ```
 To load the library into your project, use this code in the build.gradle file within the app module:
 ```gradle
-  implementation 'com.github.ChilliBits:splash-screen:1.1.0'
+  implementation 'com.github.ChilliBits:splash-screen:1.1.1'
 ```
 
 # Usage
@@ -28,18 +28,18 @@ To use the SplashScreen, paste this code to the beginning of the `onCreate` meth
 ### Kotlin
 ```android
 SplashScreenBuilder.getInstance(this)
-                .setVideo(R.raw.splash_animation)
-                .setVideoDark(R.raw.splash_animation_dark)
-                .setImage(R.drawable.app_icon)
-                .show();
+    .setVideo(R.raw.splash_animation)
+    .setVideoDark(R.raw.splash_animation_dark)
+    .setImage(R.drawable.app_icon)
+    .show();
 ```
 ### Java
 ```android
 SplashScreenBuilder.Companion.getInstance(this)
-                .setVideo(R.raw.splash_animation)
-                .setVideoDark(R.raw.splash_animation_dark)
-                .setImage(R.drawable.app_icon)
-                .show();
+    .setVideo(R.raw.splash_animation)
+    .setVideoDark(R.raw.splash_animation_dark)
+    .setImage(R.drawable.app_icon)
+    .show();
 ```
 If you want to receive a result from the SplashScreen, you can override onActivtyResult as following:
 ### Kotlin
