@@ -1,1 +1,5 @@
+/*
+ * Copyright © Marc Auberer 2020. All rights reserved
+ */
+
 include ':app', ':splashscreen'

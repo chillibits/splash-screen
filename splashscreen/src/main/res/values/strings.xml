@@ -1,3 +1,7 @@
+<!--
+  ~ Copyright © Marc Auberer 2020. All rights reserved
+  -->
+
 <resources>
     <string name="app_name">SplashScreen</string>
     <string name="powered_by">powered by M&amp;R Games</string>

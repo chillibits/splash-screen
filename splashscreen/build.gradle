@@ -1,3 +1,7 @@
+/*
+ * Copyright © Marc Auberer 2020. All rights reserved
+ */
+
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'

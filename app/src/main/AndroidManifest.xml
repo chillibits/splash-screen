@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © Marc Auberer 2020. All rights reserved
+  -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chillibits.splashscreenexample"
     android:installLocation="auto">
