@@ -20,7 +20,7 @@ allprojects {
 ```
 To load the library into your project, use this code in the build.gradle file within the app module:
 ```gradle
-  implementation 'com.github.ChilliBits:splash-screen:1.1.1'
+  implementation 'com.github.ChilliBits:splash-screen:1.1.2'
 ```
 
 # Usage
