@@ -84,4 +84,4 @@ skipImage(boolean skip) | This opens the ability to skip the image after the vid
 
 Thank you for using the SplashScreen!
 
-© M&R Games 2018-2020 (Designed and developed by Marc Auberer in 2018 and 2019)
+© ChilliBits 2018-2020 (Designed and developed by Marc Auberer from 2018 to 2020)

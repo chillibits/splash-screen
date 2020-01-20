@@ -65,11 +65,7 @@ class SplashActivity : AppCompatActivity() {
             }
 
             override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture, width: Int, height: Int) {}
-
-            override fun onSurfaceTextureDestroyed(surface: SurfaceTexture): Boolean {
-                return false
-            }
-
+            override fun onSurfaceTextureDestroyed(surface: SurfaceTexture) = false
             override fun onSurfaceTextureUpdated(surface: SurfaceTexture) {}
         }
         appIcon = findViewById(R.id.app_icon)

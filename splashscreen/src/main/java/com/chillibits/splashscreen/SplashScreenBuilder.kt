@@ -75,7 +75,7 @@ class SplashScreenBuilder private constructor(
 
     companion object {
         // Constants
-        val SPLASH_SCREEN_FINISHED = 10001
+        const val SPLASH_SCREEN_FINISHED = 10001
         internal const val VIDEO_ID = "VideoID"
         internal const val VIDEO_ID_DARK = "VideoIDDark"
         internal const val IMAGE_ID = "ImageID"
@@ -85,8 +85,6 @@ class SplashScreenBuilder private constructor(
         internal const val SKIP_ON_TAP = "SkipOnTap"
         internal const val SKIP_IMAGE = "SkipImage"
 
-        fun getInstance(activity: Activity): SplashScreenBuilder {
-            return SplashScreenBuilder(activity)
-        }
+        fun getInstance(activity: Activity) = SplashScreenBuilder(activity)
     }
 }
