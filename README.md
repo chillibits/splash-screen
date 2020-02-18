@@ -20,12 +20,12 @@ allprojects {
 ```
 To load the library into your project, use this code in the build.gradle file within the app module:
 ```gradle
-  implementation 'com.github.ChilliBits:splash-screen:1.1.2'
+  implementation 'com.github.ChilliBits:splash-screen:1.1.3'
 ```
 
 # Usage
 To use the SplashScreen, paste this code to the beginning of the `onCreate` method of the launcher activity of your app. For better performance, we recommend to do this before `setContentView()`.
-### Kotlin
+
 ```android
 SplashScreenBuilder.getInstance(this)
     .setVideo(R.raw.splash_animation)
@@ -33,14 +33,7 @@ SplashScreenBuilder.getInstance(this)
     .setImage(R.drawable.app_icon)
     .show();
 ```
-### Java
-```android
-SplashScreenBuilder.Companion.getInstance(this)
-    .setVideo(R.raw.splash_animation)
-    .setVideoDark(R.raw.splash_animation_dark)
-    .setImage(R.drawable.app_icon)
-    .show();
-```
+
 If you want to receive a result from the SplashScreen, you can override onActivtyResult as following:
 ### Kotlin
 ```android
@@ -55,12 +48,15 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
     }
 }
 ```
+
+If you want to have a look onto a implemented example in Kotlin, view the [MainActivity.kt](https://github.com/ChilliBits/splash-screen/blob/master/app/src/main/java/com/chillibits/splashscreenexample/MainActivity.kt) file.
+
 ### Java
 ```android
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    if(requestCode == SplashScreenBuilder.Companion.getSPLASH_SCREEN_FINISHED()) {
-        if(resultCode == RESULT_OK) {
+    if (requestCode == SplashScreenBuilder.SPLASH_SCREEN_FINISHED) {
+        if (resultCode == RESULT_OK) {
             //SplashScreen finished without manual canceling
         } else if(resultCode == RESULT_CANCELED) {
             //SplashScreen finished through manual canceling
@@ -68,6 +64,8 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 }
 ```
+
+If you want to have a look onto a implemented example in Java, view the [MainActivity.kt](https://github.com/ChilliBits/splash-screen/blob/master/app/src/main/java/com/chillibits/splashscreenexample/MainActivityJava.java) file.
 
 You can customize the appearance of the SplashScreen using following arguments when building the Activity with `SplashScreenBuilder`:
 
@@ -84,4 +82,4 @@ skipImage(boolean skip) | This opens the ability to skip the image after the vid
 
 Thank you for using the SplashScreen!
 
-© ChilliBits 2018-2020 (Designed and developed by Marc Auberer from 2018 to 2020)
+© ChilliBits 2018-2020 (Designed and developed by Marc Auberer)

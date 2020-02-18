@@ -7,10 +7,10 @@ package com.chillibits.splashscreenexample
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.chillibits.splashscreen.SplashScreenBuilder
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +27,7 @@ class MainActivity : AppCompatActivity() {
             .show()
 
         // Setup relaunch button
-        val relaunchButton = findViewById<Button>(R.id.relaunch_app)
-        relaunchButton.setOnClickListener {
+        relaunchApp.setOnClickListener {
             // Relaunch app
             val i = baseContext.packageManager.getLaunchIntentForPackage(baseContext.packageName)
             i?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

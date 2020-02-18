@@ -3,9 +3,9 @@
   ~ Copyright © Marc Auberer 2020. All rights reserved
   -->
 
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.chillibits.splashscreenexample"
-    android:installLocation="auto">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chillibits.splashscreenexample">
 
     <application
         android:allowBackup="true"
@@ -22,5 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.chillibits.splashscreenexample.MainActivityJava"/>
     </application>
 </manifest>
