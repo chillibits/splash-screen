@@ -13,23 +13,22 @@ import androidx.appcompat.app.AppCompatActivity
 import com.chillibits.splashscreen.SplashScreenBuilder
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // Setup SplashScreen
         SplashScreenBuilder.getInstance(this)
-                .setVideo(R.raw.splash_animation)
-                .setVideoDark(R.raw.splash_animation_dark)
-                .setImage(R.drawable.app_icon)
-                .setTitle(R.string.app_name)
-                .setSubtitle(R.string.powered_by)
-                .show()
+            .setVideo(R.raw.splash_animation)
+            .setVideoDark(R.raw.splash_animation_dark)
+            .setImage(R.drawable.app_icon)
+            .setTitle(R.string.app_name)
+            .setSubtitle(R.string.powered_by)
+            .show()
 
         // Setup relaunch button
-        val relaunch_button = findViewById<Button>(R.id.relaunch_app)
-        relaunch_button.setOnClickListener {
+        val relaunchButton = findViewById<Button>(R.id.relaunch_app)
+        relaunchButton.setOnClickListener {
             // Relaunch app
             val i = baseContext.packageManager.getLaunchIntentForPackage(baseContext.packageName)
             i?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

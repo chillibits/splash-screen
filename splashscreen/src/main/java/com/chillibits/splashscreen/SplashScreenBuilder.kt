@@ -17,56 +17,124 @@ class SplashScreenBuilder private constructor(
         this.i.putExtra(SKIP_ON_TAP, true)
     }
 
-    fun setVideo(res_id: Int): SplashScreenBuilder {
-        i.putExtra(VIDEO_ID, res_id)
+    /*
+    * Sets a video resource file to be placed in the middle of the splash screen.
+    *
+    * @param resId The resource id of the video
+    * @return The resulting builder object
+    * */
+    fun setVideo(resId: Int): SplashScreenBuilder {
+        i.putExtra(VIDEO_ID, resId)
         return this
     }
 
-    fun setVideoDark(res_id: Int): SplashScreenBuilder {
-        i.putExtra(VIDEO_ID_DARK, res_id)
+    /*
+    * Sets a video resource file to be placed in the middle of the splash screen.
+    * This is the video for the case, that the splash screen gets displayed in dark mode.
+    *
+    * @param resId The resource id of the video
+    * @return The resulting builder object
+    * */
+    fun setVideoDark(resId: Int): SplashScreenBuilder {
+        i.putExtra(VIDEO_ID_DARK, resId)
         return this
     }
 
-    fun setImage(res_id: Int): SplashScreenBuilder {
-        i.putExtra(IMAGE_ID, res_id)
+    /*
+    * Sets a image resource file to be placed in the middle of the splash screen after playing the video.
+    *
+    * @param resId The resource id of the image
+    * @return The resulting builder object
+    * */
+    fun setImage(resId: Int): SplashScreenBuilder {
+        i.putExtra(IMAGE_ID, resId)
         return this
     }
 
+    /*
+    * Sets a duration, how long the text should fade in after playing the video.
+    *
+    * @param millis Time of animation in milliseconds
+    * @return The resulting builder object
+    * */
     fun setTextFadeInDuration(millis: Int): SplashScreenBuilder {
         i.putExtra(TEXT_FADE_IN_DURATION, millis)
         return this
     }
 
+    /*
+    * Sets the title, which should be displayed after playing the video.
+    *
+    * @param resId The title in form of a string
+    * @return The resulting builder object
+    * */
     fun setTitle(title: String): SplashScreenBuilder {
         i.putExtra(TITLE, title)
         return this
     }
 
-    fun setTitle(res_id: Int): SplashScreenBuilder {
-        i.putExtra(TITLE, activity.getString(res_id))
+    /*
+    * Sets the title, which should be displayed after playing the video.
+    *
+    * @param resId The resource id of the title string resource
+    * @return The resulting builder object
+    * */
+    fun setTitle(resId: Int): SplashScreenBuilder {
+        i.putExtra(TITLE, activity.getString(resId))
         return this
     }
 
+    /*
+    * Sets the subtitle, which should be displayed after playing the video.
+    *
+    * @param resId The subtitle in form of a string
+    * @return The resulting builder object
+    * */
     fun setSubtitle(subtitle: String): SplashScreenBuilder {
         i.putExtra(SUBTITLE, subtitle)
         return this
     }
 
-    fun setSubtitle(res_id: Int): SplashScreenBuilder {
-        i.putExtra(SUBTITLE, activity.getString(res_id))
+    /*
+    * Sets the subtitle, which should be displayed after playing the video.
+    *
+    * @param resId The resource id of the subtitle string resource
+    * @return The resulting builder object
+    * */
+    fun setSubtitle(resId: Int): SplashScreenBuilder {
+        i.putExtra(SUBTITLE, activity.getString(resId))
         return this
     }
 
+    /*
+    * Enables / disables the cancellation of the splash screen when the screen is touched during
+    * the animation
+    *
+    * @param resId The resource id of the subtitle string resource
+    * @return The resulting builder object
+    * */
     fun enableSkipOnTap(skipOnTap: Boolean): SplashScreenBuilder {
         i.putExtra(SKIP_ON_TAP, skipOnTap)
         return this
     }
 
+    /*
+    * Enables / disables the image. So, if we set this to true, the splash screen only plays
+    * the video and then dismisses immediately
+    *
+    * @param resId The resource id of the subtitle string resource
+    * @return The resulting builder object
+    * */
     fun skipImage(skipImage: Boolean): SplashScreenBuilder {
         i.putExtra(SKIP_IMAGE, skipImage)
         return this
     }
 
+    /*
+    * Shows the final splash screen.
+    *
+    * @throws RuntimeException
+    * */
     fun show() {
         if (!i.hasExtra(VIDEO_ID) || !i.hasExtra(IMAGE_ID)) throw RuntimeException("You have to pass the video-id AND the image-id to open up the spash screen. Plase use the methods setVideo() and setImage().")
         if (!i.hasExtra(VIDEO_ID_DARK)) i.putExtra(VIDEO_ID_DARK, i.getIntExtra(VIDEO_ID, 0))
@@ -85,6 +153,7 @@ class SplashScreenBuilder private constructor(
         internal const val SKIP_ON_TAP = "SkipOnTap"
         internal const val SKIP_IMAGE = "SkipImage"
 
+        @JvmStatic
         fun getInstance(activity: Activity) = SplashScreenBuilder(activity)
     }
 }
