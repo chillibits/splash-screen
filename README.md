@@ -7,7 +7,7 @@ Android library for getting a nice and simple SlashScreen into your Android app.
 
 ![Animated demo](https://chillibits.com/github-media/SplashScreen/animated_demo.gif)
 
-# Installation
+## Installation
 
 Up to now, the library is only available on JitPack. Please add this code to your build.gradle file on project level:
 ```gradle
@@ -23,7 +23,7 @@ To load the library into your project, use this code in the build.gradle file wi
   implementation 'com.github.ChilliBits:splash-screen:1.1.3'
 ```
 
-# Usage
+## Usage
 To use the SplashScreen, paste this code to the beginning of the `onCreate` method of the launcher activity of your app. For better performance, we recommend to do this before `setContentView()`.
 
 ```android
@@ -69,16 +69,15 @@ If you want to have a look onto a implemented example in Java, view the [MainAct
 
 You can customize the appearance of the SplashScreen using following arguments when building the Activity with `SplashScreenBuilder`:
 
-Method | Description
--------|------------
-setVideo(int res_id) | Sets the animation video of the SplashScreen. You have to pass this argument, otherwise the app will get an error.
-setVideoDark(int res_id) | Set the animation video of the Splash Screen for the dark theme.
-setImage(int res_id) | Sets the image of the SplashScreen, which is displayed when the animation has ended. You have to pass this argument, otherwise the app will get an error.
-setTextFadeInDuration(int millis) | You can call this method to set the duration of the fade in animation of the title and the subtitle.
-setTitle(String title) | This method replaces the name of your app, which is the default title of the SplashScreen, with a custom string.
-setSubtitle(String title) | This method replaces the default subtitle, with a custom string.
-skipImage(boolean skip) | This opens the ability to skip the image after the video.
-
+| Method                            | Description                                                                                                                                               |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| setVideo(int res_id)              | Sets the animation video of the SplashScreen. You have to pass this argument, otherwise the app will get an error.                                        |
+| setVideoDark(int res_id)          | Set the animation video of the Splash Screen for the dark theme.                                                                                          |
+| setImage(int res_id)              | Sets the image of the SplashScreen, which is displayed when the animation has ended. You have to pass this argument, otherwise the app will get an error. |
+| setTextFadeInDuration(int millis) | You can call this method to set the duration of the fade in animation of the title and the subtitle.                                                      |
+| setTitle(String title)            | This method replaces the name of your app, which is the default title of the SplashScreen, with a custom string.                                          |
+| setSubtitle(String title)         | This method replaces the default subtitle, with a custom string.                                                                                          |
+| skipImage(boolean skip)           | This opens the ability to skip the image after the video.                                                                                                 |
 
 Thank you for using the SplashScreen!
 

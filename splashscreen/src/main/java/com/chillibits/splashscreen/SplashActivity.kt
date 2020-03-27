@@ -68,11 +68,11 @@ class SplashActivity : AppCompatActivity() {
             override fun onSurfaceTextureDestroyed(surface: SurfaceTexture) = false
             override fun onSurfaceTextureUpdated(surface: SurfaceTexture) {}
         }
-        appIcon = findViewById(R.id.app_icon)
+        appIcon = findViewById(R.id.appIcon)
         appIcon.setImageResource(i.getIntExtra(SplashScreenBuilder.IMAGE_ID, 0))
-        appName = findViewById(R.id.app_title)
+        appName = findViewById(R.id.appTitle)
         if (i.hasExtra(SplashScreenBuilder.TITLE) && !i.getStringExtra(SplashScreenBuilder.TITLE)!!.isEmpty()) appName.text = i.getStringExtra(SplashScreenBuilder.TITLE)
-        poweredBy = findViewById(R.id.app_powered)
+        poweredBy = findViewById(R.id.appSubtitle)
         if (i.hasExtra(SplashScreenBuilder.SUBTITLE) && !i.getStringExtra(SplashScreenBuilder.SUBTITLE)!!.isEmpty()) poweredBy.text = i.getStringExtra(SplashScreenBuilder.SUBTITLE)
 
         // Initialize fade-in textureView
