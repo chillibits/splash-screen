@@ -1,4 +1,5 @@
 # Android SplashScreen
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9f6af609b3cb4bf486942681972588e2)](https://app.codacy.com/gh/ChilliBits/splash-screen?utm_source=github.com&utm_medium=referral&utm_content=ChilliBits/splash-screen&utm_campaign=Badge_Grade_Dashboard)
 [![](https://jitpack.io/v/ChilliBits/splash-screen.svg)](https://jitpack.io/#ChilliBits/splash-screen)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SplashScreen-blue.svg?style=flat)](https://android-arsenal.com/details/1/7112)
 [![API](https://img.shields.io/badge/API-14%2B-red.svg?style=flat)](https://android-arsenal.com/api?level=14)
