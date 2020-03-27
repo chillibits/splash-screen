@@ -34,7 +34,7 @@ SplashScreenBuilder.getInstance(this)
     .show();
 ```
 
-If you want to receive a result from the SplashScreen, you can override onActivtyResult as following:
+If you want to receive a result from the SplashScreen, you can override onActivityResult as following:
 ### Kotlin
 ```android
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

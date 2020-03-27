@@ -136,7 +136,7 @@ class SplashScreenBuilder private constructor(
     * @throws RuntimeException
     * */
     fun show() {
-        if (!i.hasExtra(VIDEO_ID) || !i.hasExtra(IMAGE_ID)) throw RuntimeException("You have to pass the video-id AND the image-id to open up the spash screen. Plase use the methods setVideo() and setImage().")
+        if (!i.hasExtra(VIDEO_ID) || !i.hasExtra(IMAGE_ID)) throw IncompleteConfigurationException("You have to pass the video-id AND the image-id to open up the splash screen. Please use the methods setVideo() and setImage().")
         if (!i.hasExtra(VIDEO_ID_DARK)) i.putExtra(VIDEO_ID_DARK, i.getIntExtra(VIDEO_ID, 0))
         activity.startActivityForResult(i, SPLASH_SCREEN_FINISHED)
     }

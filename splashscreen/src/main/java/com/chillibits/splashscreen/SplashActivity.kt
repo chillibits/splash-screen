@@ -71,12 +71,12 @@ class SplashActivity : AppCompatActivity() {
         appIcon = findViewById(R.id.appIcon)
         appIcon.setImageResource(i.getIntExtra(SplashScreenBuilder.IMAGE_ID, 0))
         appName = findViewById(R.id.appTitle)
-        if (i.hasExtra(SplashScreenBuilder.TITLE) && !i.getStringExtra(SplashScreenBuilder.TITLE)!!.isEmpty()) appName.text = i.getStringExtra(SplashScreenBuilder.TITLE)
+        if (i.hasExtra(SplashScreenBuilder.TITLE) && i.getStringExtra(SplashScreenBuilder.TITLE)!!.isNotEmpty()) appName.text = i.getStringExtra(SplashScreenBuilder.TITLE)
         poweredBy = findViewById(R.id.appSubtitle)
-        if (i.hasExtra(SplashScreenBuilder.SUBTITLE) && !i.getStringExtra(SplashScreenBuilder.SUBTITLE)!!.isEmpty()) poweredBy.text = i.getStringExtra(SplashScreenBuilder.SUBTITLE)
+        if (i.hasExtra(SplashScreenBuilder.SUBTITLE) && i.getStringExtra(SplashScreenBuilder.SUBTITLE)!!.isNotEmpty()) poweredBy.text = i.getStringExtra(SplashScreenBuilder.SUBTITLE)
 
         // Initialize fade-in textureView
-        fadeIn = AnimationUtils.loadAnimation(this@SplashActivity, android.R.anim.fade_in)
+        fadeIn = AnimationUtils.loadAnimation(this, android.R.anim.fade_in)
 
         textureView.bringToFront()
         player.setOnPreparedListener { mediaPlayer ->
@@ -97,6 +97,7 @@ class SplashActivity : AppCompatActivity() {
                 finish()
             } else {
                 // Fade in the text slowly
+
                 fadeIn.setAnimationListener(object : Animation.AnimationListener {
                     override fun onAnimationStart(animation: Animation) {}
 

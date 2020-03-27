@@ -2,7 +2,8 @@
   ~ Copyright © Marc Auberer 2020. All rights reserved
   -->
 
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chillibits.splashscreen" >
 
     <application
@@ -14,7 +15,6 @@
 
         <activity
             android:name="com.chillibits.splashscreen.SplashActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar"
             android:windowSoftInputMode="adjustPan" />
     </application>
