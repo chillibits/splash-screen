@@ -3,6 +3,7 @@
 [![](https://jitpack.io/v/ChilliBits/splash-screen.svg)](https://jitpack.io/#ChilliBits/splash-screen)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SplashScreen-blue.svg?style=flat)](https://android-arsenal.com/details/1/7112)
 [![API](https://img.shields.io/badge/API-14%2B-red.svg?style=flat)](https://android-arsenal.com/api?level=14)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 Android library for getting a nice and simple SlashScreen into your Android app.
 
@@ -21,23 +22,23 @@ allprojects {
 ```
 To load the library into your project, use this code in the build.gradle file within the app module:
 ```gradle
-  implementation 'com.github.ChilliBits:splash-screen:1.1.3'
+  implementation 'com.github.ChilliBits:splash-screen:1.1.4'
 ```
 
 ## Usage
 To use the SplashScreen, paste this code to the beginning of the `onCreate` method of the launcher activity of your app. For better performance, we recommend to do this before `setContentView()`.
 
-```android
+```kotlin
 SplashScreenBuilder.getInstance(this)
     .setVideo(R.raw.splash_animation)
     .setVideoDark(R.raw.splash_animation_dark)
     .setImage(R.drawable.app_icon)
-    .show();
+    .show()
 ```
 
 If you want to receive a result from the SplashScreen, you can override onActivityResult as following:
 ### Kotlin
-```android
+```kotlin
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     super.onActivityResult(requestCode, resultCode, data)
     if (requestCode == SplashScreenBuilder.SPLASH_SCREEN_FINISHED) {
