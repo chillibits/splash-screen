@@ -17,7 +17,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Setup SplashScreen
+        // Setup relaunch button
+        relaunchApp.setOnClickListener { startSplashScreen() }
+
+        // Start splash screen
+        startSplashScreen()
+    }
+
+    private fun startSplashScreen() {
         SplashScreenBuilder.getInstance(this)
             .setVideo(R.raw.splash_animation)
             .setVideoDark(R.raw.splash_animation_dark)
@@ -25,17 +32,6 @@ class MainActivity : AppCompatActivity() {
             .setTitle(R.string.app_name)
             .setSubtitle(R.string.powered_by)
             .show()
-
-        // Setup relaunch button
-        relaunchApp.setOnClickListener {
-            // Relaunch app
-            val i = baseContext.packageManager.getLaunchIntentForPackage(baseContext.packageName)
-            i?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            i?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(i)
-            overridePendingTransition(0, 0)
-            finish()
-        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

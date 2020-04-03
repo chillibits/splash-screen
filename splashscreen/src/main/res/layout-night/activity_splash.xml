@@ -12,7 +12,7 @@
     tools:context=".SplashActivity">
 
     <TextureView
-        android:id="@+id/app_icon_animation"
+        android:id="@+id/animation"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:layout_constraintStart_toStartOf="parent"

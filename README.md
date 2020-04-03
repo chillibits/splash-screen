@@ -5,7 +5,7 @@
 [![API](https://img.shields.io/badge/API-14%2B-red.svg?style=flat)](https://android-arsenal.com/api?level=14)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Android library for getting a nice and simple SlashScreen into your Android app.
+Android library for getting a nice and simple splash screen into your Android app.
 
 ![Animated demo](https://chillibits.com/github-media/SplashScreen/animated_demo.gif)
 
@@ -22,11 +22,11 @@ allprojects {
 ```
 To load the library into your project, use this code in the build.gradle file within the app module:
 ```gradle
-  implementation 'com.github.ChilliBits:splash-screen:1.1.4'
+  implementation 'com.github.ChilliBits:splash-screen:1.1.5'
 ```
 
 ## Usage
-To use the SplashScreen, paste this code to the beginning of the `onCreate` method of the launcher activity of your app. For better performance, we recommend to do this before `setContentView()`.
+To use the splash screen, paste this code to the beginning of the `onCreate` method of the launcher activity of your app. For better performance, we recommend to do this before `setContentView()`.
 
 ```kotlin
 SplashScreenBuilder.getInstance(this)
@@ -36,7 +36,9 @@ SplashScreenBuilder.getInstance(this)
     .show()
 ```
 
-If you want to receive a result from the SplashScreen, you can override onActivityResult as following:
+**Tip**: If you want to have a custom activity transition, you can call `overridePendingTransition(R.anim.customEnterAnim, R.anim.customExitAnim)` after dispatching `.show()` of the splash screen.
+
+If you want to receive a result from the splash screen, you can override onActivityResult as following:
 ### Kotlin
 ```kotlin
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -51,7 +53,7 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
 }
 ```
 
-If you want to have a look onto a implemented example in Kotlin, view the [MainActivity.kt](https://github.com/ChilliBits/splash-screen/blob/master/app/src/main/java/com/chillibits/splashscreenexample/MainActivity.kt) file.
+If you want to have a look onto a implemented example in Kotlin, look at the [MainActivity.kt](https://github.com/ChilliBits/splash-screen/blob/master/app/src/main/java/com/chillibits/splashscreenexample/MainActivity.kt) file.
 
 ### Java
 ```android
@@ -67,7 +69,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-If you want to have a look onto a implemented example in Java, view the [MainActivity.java](https://github.com/ChilliBits/splash-screen/blob/master/app/src/main/java/com/chillibits/splashscreenexample/MainActivityJava.java) file.
+If you want to have a look onto a implemented example in Java, look at the [MainActivity.java](https://github.com/ChilliBits/splash-screen/blob/master/app/src/main/java/com/chillibits/splashscreenexample/MainActivityJava.java) file.
 
 You can customize the appearance of the SplashScreen using following arguments when building the Activity with `SplashScreenBuilder`:
 
@@ -80,7 +82,8 @@ You can customize the appearance of the SplashScreen using following arguments w
 | setTitle(String title)            | This method replaces the name of your app, which is the default title of the SplashScreen, with a custom string.                                          |
 | setSubtitle(String title)         | This method replaces the default subtitle, with a custom string.                                                                                          |
 | skipImage(boolean skip)           | This opens the ability to skip the image after the video.                                                                                                 |
+| skipVideo(boolean skip)           | This opens the ability to skip the video and display the image directly                                                                                   |
 
-Thank you for using the SplashScreen!
+Thank you for using the SplashScreen library!
 
 © ChilliBits 2018-2020 (Designed and developed by Marc Auberer)

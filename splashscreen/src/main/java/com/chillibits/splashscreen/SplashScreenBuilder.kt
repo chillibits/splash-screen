@@ -110,7 +110,7 @@ class SplashScreenBuilder private constructor(
     * Enables / disables the cancellation of the splash screen when the screen is touched during
     * the animation
     *
-    * @param resId The resource id of the subtitle string resource
+    * @param skipOnTap Enabled or not
     * @return The resulting builder object
     * */
     fun enableSkipOnTap(skipOnTap: Boolean): SplashScreenBuilder {
@@ -122,11 +122,23 @@ class SplashScreenBuilder private constructor(
     * Enables / disables the image. So, if we set this to true, the splash screen only plays
     * the video and then dismisses immediately
     *
-    * @param resId The resource id of the subtitle string resource
+    * @param skipImage Enabled or not
     * @return The resulting builder object
     * */
     fun skipImage(skipImage: Boolean): SplashScreenBuilder {
         i.putExtra(SKIP_IMAGE, skipImage)
+        return this
+    }
+
+    /*
+    * Enables / disables the animation. So, if we set this to true, the splash screen only shows
+    * the splash image and then dismisses immediately
+    *
+    * @param skipVideo Enabled or not
+    * @return The resulting builder object
+    * */
+    fun skipVideo(skipVideo: Boolean): SplashScreenBuilder {
+        i.putExtra(SKIP_VIDEO, skipVideo)
         return this
     }
 
@@ -152,6 +164,7 @@ class SplashScreenBuilder private constructor(
         internal const val SUBTITLE = "Subtitle"
         internal const val SKIP_ON_TAP = "SkipOnTap"
         internal const val SKIP_IMAGE = "SkipImage"
+        internal const val SKIP_VIDEO = "SkipAnimation"
 
         @JvmStatic
         fun getInstance(activity: Activity) = SplashScreenBuilder(activity)
