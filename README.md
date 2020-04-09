@@ -1,5 +1,6 @@
 # Android SplashScreen
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9f6af609b3cb4bf486942681972588e2)](https://app.codacy.com/gh/ChilliBits/splash-screen?utm_source=github.com&utm_medium=referral&utm_content=ChilliBits/splash-screen&utm_campaign=Badge_Grade_Dashboard)
+[![Build Status](https://travis-ci.com/ChilliBits/splash-screen.svg?branch=master)](https://travis-ci.com/ChilliBits/splash-screen)
 [![](https://jitpack.io/v/ChilliBits/splash-screen.svg)](https://jitpack.io/#ChilliBits/splash-screen)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SplashScreen-blue.svg?style=flat)](https://android-arsenal.com/details/1/7112)
 [![API](https://img.shields.io/badge/API-14%2B-red.svg?style=flat)](https://android-arsenal.com/api?level=14)
@@ -10,7 +11,6 @@ Android library for getting a nice and simple splash screen into your Android ap
 ![Animated demo](https://chillibits.com/github-media/SplashScreen/animated_demo.gif)
 
 ## Installation
-
 Up to now, the library is only available on JitPack. Please add this code to your build.gradle file on project level:
 ```gradle
 allprojects {
@@ -73,7 +73,7 @@ If you want to have a look onto a implemented example in Java, look at the [Main
 
 You can customize the appearance of the SplashScreen using following arguments when building the Activity with `SplashScreenBuilder`:
 
-| Method                            | Description                                                                                                                                               |
+| Builder method                    | Description of functionality                                                                                                                              |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | setVideo(int res_id)              | Sets the animation video of the SplashScreen. You have to pass this argument, otherwise the app will get an error.                                        |
 | setVideoDark(int res_id)          | Set the animation video of the Splash Screen for the dark theme.                                                                                          |
