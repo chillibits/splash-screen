@@ -26,4 +26,6 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: splashscreen/build/dokka/html/splashscreen
+        FOLDER: splashscreen/build/dokka/html
+        TARGET_FOLDER: docs
+        
