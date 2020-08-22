@@ -32,14 +32,5 @@ dependencies {
 }
 
 dokkaHtml.configure {
-    dokkaSourceSets {
-        configureEach {
-            moduleDisplayName.set("Splash Screen")
-            noAndroidSdkLink.set(false)
-            includeNonPublic.set(false)
-            skipDeprecated.set(false)
-            skipEmptyPackages.set(true)
-            reportUndocumented.set(true)
-        }
-    }
+    dokkaSourceSets {}
 }
