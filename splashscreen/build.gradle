@@ -5,17 +5,17 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.dokka'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 115
         versionName "1.1.5"
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -29,4 +29,17 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+
+dokkaHtml.configure {
+    dokkaSourceSets {
+        configureEach {
+            moduleDisplayName.set("Splash Screen")
+            noAndroidSdkLink.set(false)
+            includeNonPublic.set(false)
+            skipDeprecated.set(false)
+            skipEmptyPackages.set(true)
+            reportUndocumented.set(true)
+        }
+    }
 }
