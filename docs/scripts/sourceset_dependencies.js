@@ -1,1 +1,1 @@
-sourceset_dependencies = '{":splashscreen/debug": [], ":splashscreen/main": [], ":splashscreen/release": []}'
+sourceset_dependencies = '{":splashscreen:dokkaHtml/debug": [], ":splashscreen:dokkaHtml/main": [], ":splashscreen:dokkaHtml/release": []}'
