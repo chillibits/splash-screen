@@ -11,7 +11,6 @@ import android.graphics.SurfaceTexture
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
 import android.view.Surface
 import android.view.TextureView
 import android.view.View
@@ -19,35 +18,37 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_splash.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        // Initialize calling intent
-        val i = intent
-
-        // Initialize handler
-        val handler = Handler()
-
         // Initialize fade in animation
         val fadeIn = AnimationUtils.loadAnimation(this, android.R.anim.fade_in)
 
         // Set labels
-        if (i.hasExtra(SplashScreenBuilder.TITLE) && i.getStringExtra(SplashScreenBuilder.TITLE)!!.isNotEmpty()) appTitle.text = i.getStringExtra(SplashScreenBuilder.TITLE)
-        if (i.hasExtra(SplashScreenBuilder.SUBTITLE) && i.getStringExtra(SplashScreenBuilder.SUBTITLE)!!.isNotEmpty()) appSubtitle.text = i.getStringExtra(SplashScreenBuilder.SUBTITLE)
+        if (intent.hasExtra(SplashScreenBuilder.TITLE) && intent.getStringExtra(SplashScreenBuilder.TITLE)!!.isNotEmpty())
+            appTitle.text = intent.getStringExtra(SplashScreenBuilder.TITLE)
+        if (intent.hasExtra(SplashScreenBuilder.SUBTITLE) && intent.getStringExtra(SplashScreenBuilder.SUBTITLE)!!.isNotEmpty())
+            appSubtitle.text = intent.getStringExtra(SplashScreenBuilder.SUBTITLE)
 
         // Return immediately, if we're skipping the animation
-        if(i.getBooleanExtra(SplashScreenBuilder.SKIP_VIDEO, false)) return showImage(fadeIn, handler, i)
+        if(intent.getBooleanExtra(SplashScreenBuilder.SKIP_VIDEO, false)) return showImage(fadeIn, intent)
 
         // Initialize MediaPlayer
         val nightModeFlags = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-        val videoUri = Uri.parse("android.resource://$packageName/" + if (nightModeFlags == Configuration.UI_MODE_NIGHT_NO) i.getIntExtra(SplashScreenBuilder.VIDEO_ID, 0) else i.getIntExtra(SplashScreenBuilder.VIDEO_ID_DARK, 0))
+        val videoUri = Uri.parse("android.resource://$packageName/" + if (nightModeFlags == Configuration.UI_MODE_NIGHT_NO)
+            intent.getIntExtra(SplashScreenBuilder.VIDEO_ID, 0)
+        else
+            intent.getIntExtra(SplashScreenBuilder.VIDEO_ID_DARK, 0))
         val player = MediaPlayer.create(this, videoUri)
 
         // Initialize components
-        if (i.hasExtra(SplashScreenBuilder.SKIP_ON_TAP) && i.getBooleanExtra(SplashScreenBuilder.SKIP_ON_TAP, true)) {
+        if (intent.hasExtra(SplashScreenBuilder.SKIP_ON_TAP) && intent.getBooleanExtra(SplashScreenBuilder.SKIP_ON_TAP, true)) {
             container.setOnClickListener {
                 player.stop()
                 setResult(Activity.RESULT_CANCELED)
@@ -78,29 +79,30 @@ class SplashActivity : AppCompatActivity() {
         player.setOnCompletionListener {
             animation.visibility = View.GONE
             player.stop()
-            if (i.hasExtra(SplashScreenBuilder.SKIP_IMAGE) && i.getBooleanExtra(SplashScreenBuilder.SKIP_IMAGE, false)) {
+            if (intent.hasExtra(SplashScreenBuilder.SKIP_IMAGE) && intent.getBooleanExtra(SplashScreenBuilder.SKIP_IMAGE, false)) {
                 // If image skipping was set, finish the activity
                 setResult(Activity.RESULT_OK)
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                 finish()
             } else {
-                showImage(fadeIn, handler, i)
+                showImage(fadeIn, intent)
             }
         }
         animation.requestFocus()
     }
 
-    private fun showImage(fadeIn: Animation, handler: Handler, i: Intent) {
+    private fun showImage(fadeIn: Animation, i: Intent) {
         appIcon.setImageResource(i.getIntExtra(SplashScreenBuilder.IMAGE_ID, 0))
         appIcon.visibility = View.VISIBLE
         // Fade in the text slowly
         fadeIn.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationEnd(animation: Animation) {
-                handler.postDelayed({
+                GlobalScope.launch {
+                    delay(i.getIntExtra(SplashScreenBuilder.TEXT_FADE_IN_DURATION, 1000).toLong())
                     setResult(Activity.RESULT_OK)
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                     finish()
-                }, i.getIntExtra(SplashScreenBuilder.TEXT_FADE_IN_DURATION, 1000).toLong())
+                }
             }
 
             override fun onAnimationStart(animation: Animation) {}
