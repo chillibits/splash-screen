@@ -1,5 +1,25 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-
+$dokka.location:com.chillibits.splashscreen////PointingToDeclaration/splashscreen/com.chillibits.splashscreen/index.html
+$dokka.location:com.chillibits.splashscreen/IncompleteConfigurationException///PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-incomplete-configuration-exception/index.html
+$dokka.location:com.chillibits.splashscreen/IncompleteConfigurationException/IncompleteConfigurationException/#kotlin.String/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-incomplete-configuration-exception/-incomplete-configuration-exception.html
+$dokka.location:com.chillibits.splashscreen/SplashActivity///PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-activity/index.html
+$dokka.location:com.chillibits.splashscreen/SplashActivity/SplashActivity/#/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-activity/-splash-activity.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder.Companion///PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/-companion/index.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder.Companion/SPLASH_SCREEN_FINISHED/#/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/-companion/-s-p-l-a-s-h_-s-c-r-e-e-n_-f-i-n-i-s-h-e-d.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder.Companion/getInstance/#android.app.Activity/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/-companion/get-instance.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder///PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/index.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder/enableSkipOnTap/#kotlin.Boolean/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/enable-skip-on-tap.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder/setImage/#kotlin.Int/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/set-image.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder/setSubtitle/#kotlin.Int/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/set-subtitle.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder/setSubtitle/#kotlin.String/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/set-subtitle.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder/setTextFadeInDuration/#kotlin.Int/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/set-text-fade-in-duration.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder/setTitle/#kotlin.Int/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/set-title.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder/setTitle/#kotlin.String/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/set-title.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder/setVideo/#kotlin.Int/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/set-video.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder/setVideoDark/#kotlin.Int/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/set-video-dark.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder/show/#/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/show.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder/skipImage/#kotlin.Boolean/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/skip-image.html
+$dokka.location:com.chillibits.splashscreen/SplashScreenBuilder/skipVideo/#kotlin.Boolean/PointingToDeclaration/splashscreen/com.chillibits.splashscreen/-splash-screen-builder/skip-video.html
 com.chillibits.splashscreen
 
