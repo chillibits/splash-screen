@@ -86,4 +86,4 @@ You can customize the appearance of the SplashScreen using following arguments w
 
 Thank you for using the SplashScreen library!
 
-© ChilliBits 2018-2020 (Designed and developed by Marc Auberer)
+© ChilliBits 2018-2021 (Designed and developed by Marc Auberer)
